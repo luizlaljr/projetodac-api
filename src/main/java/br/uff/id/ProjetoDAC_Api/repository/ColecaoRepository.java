@@ -21,7 +21,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 @RepositoryRestResource(collectionResourceRel = "colecao", path = "colecao")
 public interface ColecaoRepository extends CrudRepository<Colecao, Long>{
     
-    @Query("SELECT c FROM Colecao c WHERE c.inicio >= :inicio AND e.fim <= :fim")
+    @Query("SELECT c FROM Colecao c WHERE c.inicio >= :inicio AND c.fim <= :fim")
     List<Colecao> findByEventosEntreDatas(@Param("inicio") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Calendar inicio,@Param("fim") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Calendar fim);
     
 }
