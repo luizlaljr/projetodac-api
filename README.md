@@ -7,7 +7,7 @@
 
 ![http://projetodac-api.herokuapp.com/swagger-ui/index.html](http://projetodac-api.herokuapp.com/swagger-ui/index.html)
 
-![Documentação da Api by Swagger](http://github.com/luizlaljr/projetodac-api/blob/master/print_doc.png)
+![Documentação da Api by Swagger](https://github.com/luizlaljr/projetodac-api/blob/master/print_doc.png)
 
 ### :paperclip: Endereço da api hospedada no Heroku:
 
