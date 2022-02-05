@@ -86,8 +86,8 @@ public class Recurso implements Serializable{
     
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable( name="autor_recurso",
-      joinColumns = @JoinColumn(name = "autor_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "fk_autor_id")), 
-      inverseJoinColumns = @JoinColumn(name = "recurso_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "fk_recurso_id")))
+      joinColumns = @JoinColumn(name = "recurso_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "fk_recurso_id")), 
+      inverseJoinColumns = @JoinColumn(name = "autor_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "fk_autor_id")))
     private Set<Autor> autores;
     
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
