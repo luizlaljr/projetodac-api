@@ -62,7 +62,7 @@ public class Autor implements Serializable{
     @Column(name = "orcid", nullable = false, length = 19)
     private String orcid;
     
-    @ManyToMany(mappedBy = "autores", cascade = CascadeType.REMOVE)
+    @ManyToMany(mappedBy = "autores")
     @OrderBy("titulo ASC")
     private Set<Recurso> recursos;
         
