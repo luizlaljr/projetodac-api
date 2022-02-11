@@ -6,6 +6,8 @@
 package br.uff.id.ProjetoDAC_Api.repository;
 
 import br.uff.id.ProjetoDAC_Api.model.Recurso;
+import java.util.List;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
@@ -14,5 +16,8 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
  * @author Luiz Alberto Junior
  */
 @RepositoryRestResource(collectionResourceRel = "recurso", path = "recursos")
-public interface RecursoRepository extends CrudRepository<Recurso, Long>{    
+public interface RecursoRepository extends CrudRepository<Recurso, Long>{  
+    
+    @Query("SELECT r FROM Recurso r LEFT JOIN Colecao c on r.colecao = c WHERE r.colecao IS NULL")
+    List<Recurso> findRecursosSemColecao();
 }
