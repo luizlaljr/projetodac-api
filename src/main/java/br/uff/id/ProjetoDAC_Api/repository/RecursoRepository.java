@@ -18,6 +18,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 @RepositoryRestResource(collectionResourceRel = "recurso", path = "recursos")
 public interface RecursoRepository extends CrudRepository<Recurso, Long>{  
     
-    @Query("SELECT r FROM Recurso r LEFT JOIN Colecao c on r.colecao = c WHERE r.colecao IS NULL")
+    @Query("SELECT rec FROM Recurso rec LEFT JOIN Colecao col on rec.colecao = col WHERE rec.colecao IS NULL")
     List<Recurso> findRecursosSemColecao();
+    
 }
