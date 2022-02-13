@@ -10,6 +10,7 @@ import java.util.List;
 import javax.transaction.Transactional;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 /**
@@ -20,6 +21,6 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 @Transactional
 public interface RecursoRepository extends CrudRepository<Recurso, Long>{  
     
-    @Query("SELECT rec FROM Recurso rec LEFT JOIN rec.colecao col WHERE col IS NULL")
-    List<Recurso> findRecursosSemColecao();
+    @Query("SELECT rec FROM Recurso rec LEFT JOIN rec.colecao col WHERE col IS NULL OR col.id = :id ")
+    List<Recurso> findRecursosSemColecao(@Param("id") Long id);
 }
