@@ -18,10 +18,6 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 @RepositoryRestResource(collectionResourceRel = "recurso", path = "recursos")
 public interface RecursoRepository extends CrudRepository<Recurso, Long>{  
     
-//    @Query("SELECT rec FROM Recurso rec LEFT JOIN Colecao col on rec.colecao = col WHERE rec.colecao IS NULL")
-//    List<Recurso> findRecursosSemColecao();
-    
-      //select e from Employee e where not exists (select 1 from User u where u.employee = e)
-    @Query("SELECT rec FROM Recurso rec WHERE NOT EXISTS (SELECT 1 FROM Colecao col WHERE col.recursos = rec)")
+    @Query("SELECT rec FROM Recurso rec LEFT JOIN Colecao col on rec.colecao = col WHERE rec.colecao IS NULL")
     List<Recurso> findRecursosSemColecao();
 }
